@@ -38,5 +38,6 @@ class PlacesListAdapter(val places:MutableList<Place>,val context: Context) : Re
         val placeName=itemView.findViewById<TextView>(R.id.place_name)
         val placeButton=itemView.findViewById<Button>(R.id.place_del_button)
 
+
     }
 }
