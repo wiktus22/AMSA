@@ -36,10 +36,8 @@ class MainActivity : AppCompatActivity() {
         val id = item.itemId
 
         if (id == R.id.add) {
-            Toast.makeText(this, "Item ADD Clicked", Toast.LENGTH_LONG).show()
-
-            // val fragment = Fragment_add.newInstance()
-            // replaceFragment(fragment)
+            val fragment = AddFragment.newInstacne()
+            replaceFragment(fragment)
             return true
         }
 
