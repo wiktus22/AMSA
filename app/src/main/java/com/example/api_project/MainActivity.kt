@@ -1,5 +1,6 @@
 package com.example.api_project
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -9,12 +10,15 @@ import androidx.fragment.app.Fragment
 
 class MainActivity : AppCompatActivity() {
 
+    var fragmentPlaces = PlacesFragment.newInstacne()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val fragment = MainFragment.newInstacne()
+        val fragment = PlacesFragment.newInstacne()
         replaceFragment(fragment)
+        refreshPlaaces()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -56,6 +60,15 @@ class MainActivity : AppCompatActivity() {
 
         return super.onOptionsItemSelected(item)
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        refreshPlaaces()
+    }
+
+    fun refreshPlaaces(){
+        fragmentPlaces.refreshPlaces()
     }
 
 }

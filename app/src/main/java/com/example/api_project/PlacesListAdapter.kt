@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.list_places.view.*
 
 
 class PlacesListAdapter(val places:MutableList<Place>,val context: Context) : RecyclerView.Adapter<PlacesListAdapter.ViewHolder>() {
@@ -22,22 +24,34 @@ class PlacesListAdapter(val places:MutableList<Place>,val context: Context) : Re
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        var place=places[position]
+
+        val place=places[position]
 
         holder.placeName.text=place.name
-        holder.placeButton.setOnClickListener() {
-            val intent= Intent(context,PlacesFragment.newInstacne()::class.java).apply {
-                putExtra("ItemID",places[position].id)
-            }
-            context.startActivity(intent)
+
+
+        val view = holder?.itemView
+
+        view?.setOnClickListener {
+            Toast.makeText(context as MainActivity,places[position].id.toString(),Toast.LENGTH_LONG).show()
+
+        }
+
+        view?.place_del_button?.setOnClickListener {
+
+            val dbHelper = DBHelper(context)
+            dbHelper.deletePlace(places[position].id)
+
+            (context as MainActivity).refreshPlaaces()
+
         }
 
     }
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
 
         val placeName=itemView.findViewById<TextView>(R.id.place_name)
-        val placeButton=itemView.findViewById<Button>(R.id.place_del_button)
 
 
     }
+
 }

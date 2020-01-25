@@ -22,13 +22,12 @@ class AddFragment:Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
 
         val dbHelper = DBHelper(context as MainActivity)
+
         place_add_done.setOnClickListener {
-            dbHelper.addItem(
-                Place(
-                    place_add_name.text.toString(),
-                    0
-                )
-            )
+
+            val place = Place(place_add_name.text.toString())
+            dbHelper.addItem(place)
+
             Toast.makeText(context as MainActivity,"Place Added", Toast.LENGTH_LONG).show()
 
         }

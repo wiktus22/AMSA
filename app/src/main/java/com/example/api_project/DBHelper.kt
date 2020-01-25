@@ -40,7 +40,7 @@ class DBHelper(context: Context): SQLiteOpenHelper(context, DATA_BASE_NAME,null,
                 do{
                     val id=cursor.getInt(cursor.getColumnIndex(COL_ID))
                     val name=cursor.getString(cursor.getColumnIndex(COL_NAME))
-                    val place=Place(name,id)
+                    val place=Place(name)
                     places.add(place)
 
                 }while(cursor.moveToNext())
@@ -49,14 +49,19 @@ class DBHelper(context: Context): SQLiteOpenHelper(context, DATA_BASE_NAME,null,
             return places
         }
 
-    fun addItem(place: Place):Long{
+    fun addItem(place: Place){
 
         val db=this.writableDatabase
         val value= contentValuesOf()
         value.put(COL_NAME,place.name)
-        val result=db.insert(TABLE_NAME,null,value)
-        place.id=result.toInt()
+        //val result=db.insert(TABLE_NAME,null,value)
+        //place.id=result.toInt()
+        db.insert(TABLE_NAME,null,value)
         db.close()
-        return result
+        return
+    }
+
+    fun deletePlace(id: Int?) {
+        this.writableDatabase.execSQL("DELETE FROM $TABLE_NAME WHERE $COL_ID LIKE $id")
     }
 }

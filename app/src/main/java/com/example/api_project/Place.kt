@@ -1,4 +1,16 @@
 package com.example.api_project
 
+import java.io.Serializable
 
-data class Place ( var name: String,var id:Int?=null)
+
+data class Place ( var name: String):Serializable{
+    companion object {
+        var current_id = 0
+    }
+
+    var id: Int
+
+    init {
+        id = -1
+    }
+}
