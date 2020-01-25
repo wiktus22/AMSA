@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val fragment = PlacesFragment.newInstacne()
+        val fragment = MainFragment.newInstacne()
         replaceFragment(fragment)
         refreshPlaaces()
     }

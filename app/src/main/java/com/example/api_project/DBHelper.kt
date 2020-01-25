@@ -44,7 +44,7 @@ class DBHelper(context: Context): SQLiteOpenHelper(context, DATA_BASE_NAME,null,
                     var place=Place(name)
                     place.id = id
                     places.add(place)
-                    
+
 
                 }while(cursor.moveToNext())
             }
@@ -57,8 +57,6 @@ class DBHelper(context: Context): SQLiteOpenHelper(context, DATA_BASE_NAME,null,
         val db=this.writableDatabase
         val value= contentValuesOf()
         value.put(COL_NAME,place.name)
-        //val result=db.insert(TABLE_NAME,null,value)
-        //place.id=result.toInt()
         db.insert(TABLE_NAME,null,value)
         db.close()
         return
