@@ -28,7 +28,7 @@ class AddFragment:Fragment() {
             val place = Place(place_add_name.text.toString())
             dbHelper.addItem(place)
 
-            Toast.makeText(context as MainActivity,"Place Added", Toast.LENGTH_LONG).show()
+            //Toast.makeText(context as MainActivity,"Place Added", Toast.LENGTH_LONG).show()
 
         }
         super.onActivityCreated(savedInstanceState)

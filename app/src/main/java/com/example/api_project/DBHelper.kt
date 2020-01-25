@@ -19,7 +19,7 @@ class DBHelper(context: Context): SQLiteOpenHelper(context, DATA_BASE_NAME,null,
     override fun onCreate(db: SQLiteDatabase?){
         val sql=db!!.execSQL(
             "CREATE TABLE IF NOT EXISTS $TABLE_NAME("+
-                    "$COL_ID INTEAGER PRIMARY KEY,"+
+                    "$COL_ID INTEGER PRIMARY KEY,"+
                     "$COL_NAME TEXT NOT NULL)"
         )
     }
@@ -40,8 +40,11 @@ class DBHelper(context: Context): SQLiteOpenHelper(context, DATA_BASE_NAME,null,
                 do{
                     val id=cursor.getInt(cursor.getColumnIndex(COL_ID))
                     val name=cursor.getString(cursor.getColumnIndex(COL_NAME))
-                    val place=Place(name)
+
+                    var place=Place(name)
+                    place.id = id
                     places.add(place)
+                    
 
                 }while(cursor.moveToNext())
             }
