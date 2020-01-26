@@ -42,7 +42,13 @@ class PlacesListAdapter(val places:MutableList<Place>,val context: Context) : Re
             val dbHelper = DBHelper(context)
             dbHelper.deletePlace(places[position].id)
 
-            (context as MainActivity).refreshPlaaces()
+            (context as MainActivity).refreshPlaces()
+
+            (it.context as MainActivity)
+                .supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.fragmentContainer, PlacesFragment.newInstacne())
+                .commit()
 
         }
 

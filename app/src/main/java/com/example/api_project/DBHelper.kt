@@ -41,7 +41,7 @@ class DBHelper(context: Context): SQLiteOpenHelper(context, DATA_BASE_NAME,null,
                     val id=cursor.getInt(cursor.getColumnIndex(COL_ID))
                     val name=cursor.getString(cursor.getColumnIndex(COL_NAME))
 
-                    var place=Place(name)
+                    var place=Place(name,id)
                     place.id = id
                     places.add(place)
 
@@ -56,6 +56,7 @@ class DBHelper(context: Context): SQLiteOpenHelper(context, DATA_BASE_NAME,null,
 
         val db=this.writableDatabase
         val value= contentValuesOf()
+        value.put(COL_ID,place.id)
         value.put(COL_NAME,place.name)
         db.insert(TABLE_NAME,null,value)
         db.close()

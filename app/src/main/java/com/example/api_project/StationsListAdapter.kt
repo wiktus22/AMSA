@@ -50,8 +50,9 @@ class StationsListAdapter: RecyclerView.Adapter<StationsListAdapter.ViewHolder>(
 
 
         holder.itemView.setOnClickListener{
-            Toast.makeText(it.context as MainActivity,act.id.toString(), Toast.LENGTH_LONG).show()
-            
+            //Toast.makeText(it.context as MainActivity,act.id.toString(), Toast.LENGTH_LONG).show()
+            (it.context as? MainActivity)?.addSation(act.id,act.stationName)
+
         }
 
     }

@@ -3,8 +3,8 @@ package com.example.api_project
 import java.io.Serializable
 
 
-data class Place ( var name: String):Serializable{
-    companion object {
+data class Place ( var name: String?,var id:Int?):Serializable{
+    /*companion object {
         var current_id = 0
     }
 
@@ -12,5 +12,5 @@ data class Place ( var name: String):Serializable{
 
     init {
         id = -1
-    }
+    }*/
 }

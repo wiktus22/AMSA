@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         val fragment = MainFragment.newInstacne()
         replaceFragment(fragment)
-        refreshPlaaces()
+        refreshPlaces()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -47,14 +47,15 @@ class MainActivity : AppCompatActivity() {
         val id = item.itemId
 
         if (id == R.id.add) {
-            val fragment = AddFragment.newInstacne()
+            val fragment = MainFragment.newInstacne()
             replaceFragment(fragment)
             return true
         }
 
 
         if (id == R.id.hiden) {
-            Toast.makeText(this, "Item Hiden Clicked", Toast.LENGTH_LONG).show()
+            //val fragment = MainFragment.newInstacne()
+            //replaceFragment(fragment)
             return true
         }
 
@@ -71,11 +72,23 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        refreshPlaaces()
+        refreshPlaces()
     }
 
-    fun refreshPlaaces(){
+    fun refreshPlaces(){
         fragmentPlaces.refreshPlaces()
     }
 
+
+    fun addSation(id:Int,stationName:String){
+
+        val bundle=Bundle()
+        bundle.putInt("id", id)
+        bundle.putString("name",stationName)
+
+        val fragment = AddFragment.newInstacne()
+        fragment.setArguments(bundle)
+
+        replaceFragment(fragment as Fragment)
+    }
 }

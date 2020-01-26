@@ -10,23 +10,37 @@ import kotlinx.android.synthetic.main.fragment_add.*
 
 class AddFragment:Fragment() {
 
-    companion object{
+    companion object {
         fun newInstacne() = AddFragment()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_add,container, false)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_add, container, false)
 
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
 
+        val id = arguments?.getInt("id")
+        val name = arguments?.getString("name")
         val dbHelper = DBHelper(context as MainActivity)
+        //Toast.makeText(context as MainActivity,name, Toast.LENGTH_LONG).show()
+
+        textViewId.text=id.toString()
+        textViewName.text=name
 
         place_add_done.setOnClickListener {
-
-            val place = Place(place_add_name.text.toString())
+            val place = Place(name,id)
             dbHelper.addItem(place)
+            (it.context as MainActivity)
+                .supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.fragmentContainer, PlacesFragment.newInstacne())
+                .commit()
 
             //Toast.makeText(context as MainActivity,"Place Added", Toast.LENGTH_LONG).show()
 
