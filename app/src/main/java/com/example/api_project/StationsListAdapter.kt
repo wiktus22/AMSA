@@ -4,16 +4,17 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 import kotlinx.android.synthetic.main.list_stations.view.*
 
 class StationsListAdapter: RecyclerView.Adapter<StationsListAdapter.ViewHolder>() {
 
-    private var listInAdapter = ArrayList<Test>()
+    private var stationsList = ArrayList<Station>()
 
-    fun setStation(list:ArrayList<Test>){
-        listInAdapter=list
+    fun setStation(list:ArrayList<Station>){
+        stationsList=list
         notifyDataSetChanged()
     }
 
@@ -30,32 +31,28 @@ class StationsListAdapter: RecyclerView.Adapter<StationsListAdapter.ViewHolder>(
     }
 
     override fun getItemCount(): Int {
-        return listInAdapter.size
+        return stationsList.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val act = listInAdapter[position]
+        val act = stationsList[position]
         holder.stationIDTextView.text=act.id.toString()
         holder.stationNameTextView.text=act.stationName
 
-       /* if (position%2 != 0) {
-            holder.stationIDTextView.setBackgroundColor(Color.BLUE)
-            holder.stationNameTextView.setBackgroundColor(Color.BLUE)
+        if (position%2 != 0) {
+            holder.stationIDTextView.setBackgroundColor(Color.GRAY)
+            holder.stationNameTextView.setBackgroundColor(Color.GRAY)
         }
         else{
             holder.stationIDTextView.setBackgroundColor(Color.GREEN)
             holder.stationNameTextView.setBackgroundColor(Color.GREEN)
-        }*/
-        /*holder.itemView.setOnClickListener{
-            (it.context as MainActivity)
-                .supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.tester,FragmentCurrentStationInfo())
-                .commit()
+        }
 
 
-
-        }*/
+        holder.itemView.setOnClickListener{
+            Toast.makeText(it.context as MainActivity,act.id.toString(), Toast.LENGTH_LONG).show()
+            
+        }
 
     }
 }

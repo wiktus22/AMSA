@@ -10,8 +10,8 @@ import retrofit2.http.GET
 interface RestAPI {
 
 
-    @GET("findAll")
-    fun getStations(): Call<List<Test>>
+    @GET("station/findAll")
+    fun getStations(): Call<List<Station>>
 
     /*@GET("station/sensors/{stationid}")
     fun sensorsInStation(@Path("stationid") stationId: Int): Call<List<Sensor>>
