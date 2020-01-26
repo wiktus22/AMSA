@@ -6,40 +6,44 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.list_info.view.*
 
 import kotlinx.android.synthetic.main.list_stations.view.*
 
-class StationsListAdapter: RecyclerView.Adapter<StationsListAdapter.ViewHolder>() {
+class SensorsListAdapter: RecyclerView.Adapter<SensorsListAdapter.ViewHolder>() {
 
-    private var stationsList = ArrayList<Station>()
+    private var sensorsList = ArrayList<Sensor>()
 
-    fun setStation(list:ArrayList<Station>){
-        stationsList=list
+    fun setSensor(list:ArrayList<Sensor>){
+        sensorsList=list
         notifyDataSetChanged()
     }
 
 
 
     inner class  ViewHolder(view: View): RecyclerView.ViewHolder(view){
-        val stationIDTextView = view.Station_id!!
-        val stationNameTextView = view.Station_name!!
+        val sensorIDTextView = view.sensorId!!
+        val sensorNameTextView = view.sensorParamName!!
+        val sensorCodeTextView = view.sensorParamCode!!
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_stations,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_info,parent,false)
         return ViewHolder(view)
     }
 
     override fun getItemCount(): Int {
-        return stationsList.size
+        return sensorsList.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val act = stationsList[position]
-        holder.stationIDTextView.text=act.id.toString()
-        holder.stationNameTextView.text=act.stationName
+        val act = sensorsList[position]
+        holder.sensorIDTextView.text=act.id.toString()
+        holder.sensorNameTextView.text= act.param?.paramName
+        holder.sensorCodeTextView.text= act.param?.paramCode
 
-        if (position%2 != 0) {
+
+       /* if (position%2 != 0) {
             holder.stationIDTextView.setBackgroundColor(Color.GRAY)
             holder.stationNameTextView.setBackgroundColor(Color.GRAY)
         }
@@ -53,7 +57,7 @@ class StationsListAdapter: RecyclerView.Adapter<StationsListAdapter.ViewHolder>(
             //Toast.makeText(it.context as MainActivity,act.id.toString(), Toast.LENGTH_LONG).show()
             (it.context as? MainActivity)?.addStation(act.id,act.stationName)
 
-        }
+        }*/
 
     }
 }

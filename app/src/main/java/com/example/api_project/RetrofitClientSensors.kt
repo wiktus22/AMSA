@@ -1,3 +1,4 @@
+
 package com.example.api_project
 
 import android.widget.Toast
@@ -9,13 +10,13 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
-class RetrofitClient : Callback<List<Station>> {
+class RetrofitClientSensors: Callback<List<Sensor>> {
 
     companion object {
         val API_ADRESS = "http://api.gios.gov.pl/pjp-api/rest/"
     }
 
-    var stationMutableList: MutableLiveData<List<Station>> = MutableLiveData()
+    var sensorsMutableList: MutableLiveData<List<Sensor>> = MutableLiveData()
 
     init {
         val retrofit = Retrofit.Builder()
@@ -23,19 +24,19 @@ class RetrofitClient : Callback<List<Station>> {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val restapi = retrofit.create(RestAPI::class.java)
-        val kolejnazmienna = restapi.getStations()
+        val kolejnazmienna = restapi.sensorsInStation(809)
         kolejnazmienna.enqueue(this)
     }
 
 
-    override fun onFailure(call: Call<List<Station>>?, t: Throwable?) {
+    override fun onFailure(call: Call<List<Sensor>>?, t: Throwable?) {
         t?.printStackTrace()
     }
 
-    override fun onResponse(call: Call<List<Station>>?, response: Response<List<Station>>?) {
+    override fun onResponse(call: Call<List<Sensor>>?, response: Response<List<Sensor>>?) {
         if (response != null) {
             if (response.isSuccessful) {
-                stationMutableList.value=response.body()
+                sensorsMutableList.value=response.body()
             }
         }
     }

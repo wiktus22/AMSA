@@ -52,6 +52,17 @@ class MainActivity : AppCompatActivity() {
             return true
         }
 
+        if (id==R.id.list) {
+            val fragment = PlacesFragment.newInstacne()
+            replaceFragment(fragment)
+            return true
+        }
+
+        if (id==R.id.home) {
+            val fragment = InfoFragment.newInstacne()
+            replaceFragment(fragment)
+            return true
+        }
 
         if (id == R.id.hiden) {
             //val fragment = MainFragment.newInstacne()
@@ -59,11 +70,7 @@ class MainActivity : AppCompatActivity() {
             return true
         }
 
-        if (id==R.id.list) {
-            val fragment = PlacesFragment.newInstacne()
-            replaceFragment(fragment)
-            return true
-        }
+
 
 
         return super.onOptionsItemSelected(item)
@@ -80,7 +87,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun addSation(id:Int,stationName:String){
+    fun addStation(id:Int,stationName:String){
 
         val bundle=Bundle()
         bundle.putInt("id", id)
