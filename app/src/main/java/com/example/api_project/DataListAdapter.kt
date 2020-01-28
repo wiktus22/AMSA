@@ -1,5 +1,6 @@
 package com.example.api_project
 
+import android.util.Log.d
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,9 +10,9 @@ import kotlinx.android.synthetic.main.list_info.view.*
 
 class DataListAdapter: RecyclerView.Adapter<DataListAdapter.ViewHolder>() {
 
-    private var dataList = ArrayList<SensorValue>()
+    private var dataList = ArrayList<SensorData>()
 
-    fun setData(list:ArrayList<SensorValue>){
+    fun setData(list:ArrayList<SensorData>){
         dataList=list
         notifyDataSetChanged()
     }
@@ -19,7 +20,7 @@ class DataListAdapter: RecyclerView.Adapter<DataListAdapter.ViewHolder>() {
 
 
     inner class  ViewHolder(view: View): RecyclerView.ViewHolder(view){
-        //val dataKeyTextView = view.dataKey!!
+        val dataKeyTextView = view.dataKey!!
         val dataDateTextView = view.dataDate!!
         val dataValueTextView = view.dataValue!!
     }
@@ -34,10 +35,11 @@ class DataListAdapter: RecyclerView.Adapter<DataListAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        d("Lista", dataList[position].toString())
         val act = dataList[position]
-        //holder.dataKeyTextView.text=act.key
-        holder.dataDateTextView.text= act.date
-        holder.dataValueTextView.text= act.value.toString()
+        holder.dataKeyTextView.text=act.key
+        holder.dataDateTextView.text= act.values?.date
+        holder.dataValueTextView.text= act.values?.value.toString()
 
 
         /* if (position%2 != 0) {

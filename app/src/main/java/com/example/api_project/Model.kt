@@ -60,11 +60,12 @@ class SensorData {
     var key: String = ""
 
     @SerializedName("values")
-    var values: List<SensorValue> = listOf<SensorValue>()
+    var values: SensorValue?=null
+    //var values: List<SensorValue> = listOf<SensorValue>()
 
-    override fun toString(): String {
+    /*override fun toString(): String {
         return key + ", " + values[0].toString() + ", " + values[1].toString()
-    }
+    }*/
 
 }
 
@@ -73,11 +74,12 @@ class SensorValue {
     @SerializedName("date")
     var date: String = ""
 
+
     @SerializedName("value")
     var value: Int? = null
 
-    override fun toString(): String {
+    /*override fun toString(): String {
         return date// + " - " + value.toString()
-    }
+    }*/
 
 }
