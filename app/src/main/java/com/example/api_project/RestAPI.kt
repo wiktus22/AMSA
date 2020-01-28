@@ -16,7 +16,7 @@ interface RestAPI {
     fun sensorsInStation(@Path("stationid") stationId: Int): Call<List<Sensor>>
 
     @GET("data/getData/{sensorId}")
-    fun sensorData(@Path("sensorId") sensorId: Int): Call<SensorData>
+    fun sensorData(@Path("sensorId") sensorId: Int): Call<SensorValue>
 
 
 }

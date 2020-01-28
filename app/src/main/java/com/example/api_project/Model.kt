@@ -37,9 +37,9 @@ class Sensor {
     @SerializedName("param")
     var param: Parameters? = null
 
-    override fun toString(): String {
+    /*override fun toString(): String {
         return id.toString() + ", " + param?.paramName + ", " + param?.paramCode + "\n"
-    }
+    }*/
 
 }
 

@@ -65,8 +65,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         if (id == R.id.hiden) {
-            //val fragment = MainFragment.newInstacne()
-            //replaceFragment(fragment)
+            val fragment = DataSensorFragment.newInstacne()
+            replaceFragment(fragment)
             return true
         }
 
