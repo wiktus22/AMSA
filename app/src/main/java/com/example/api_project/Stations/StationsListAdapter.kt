@@ -42,14 +42,11 @@ class StationsListAdapter: RecyclerView.Adapter<StationsListAdapter.ViewHolder>(
         holder.stationIDTextView.text=act.id.toString()
         holder.stationNameTextView.text=act.stationName
 
-        if (position%2 != 0) {
-            holder.stationIDTextView.setBackgroundColor(Color.GRAY)
-            holder.stationNameTextView.setBackgroundColor(Color.GRAY)
-        }
-        else{
-            //holder.stationIDTextView.setBackgroundColor(Color.WHITE)
-            //holder.stationNameTextView.setBackgroundColor(Color.WHITE)
-        }
+       /* if (position%2 != 0) {
+            holder.stationIDTextView.setBackgroundColor(Color.LTGRAY)
+            holder.stationNameTextView.setBackgroundColor(Color.LTGRAY)
+        }*/
+
 
 
         holder.itemView.setOnClickListener{

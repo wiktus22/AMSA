@@ -1,9 +1,11 @@
 package com.example.api_project.SensorsData
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.api_project.MainActivity
 import com.example.api_project.R
 import com.example.api_project.SensorData
 import kotlinx.android.synthetic.main.list_data.view.*
@@ -43,21 +45,13 @@ class DataListAdapter: RecyclerView.Adapter<DataListAdapter.ViewHolder>() {
         holder.dataValueTextView.text= act.value.toString()
 
 
-        /* if (position%2 != 0) {
-             holder.stationIDTextView.setBackgroundColor(Color.GRAY)
-             holder.stationNameTextView.setBackgroundColor(Color.GRAY)
-         }
-         else{
-             holder.stationIDTextView.setBackgroundColor(Color.GREEN)
-             holder.stationNameTextView.setBackgroundColor(Color.GREEN)
-         }
-
-
-         holder.itemView.setOnClickListener{
-             //Toast.makeText(it.context as MainActivity,act.id.toString(), Toast.LENGTH_LONG).show()
-             (it.context as? MainActivity)?.addStation(act.id,act.stationName)
-
+        /*if (position%2 != 0) {
+             holder.dataKeyTextView.setBackgroundColor(Color.LTGRAY)
+             holder.dataDateTextView.setBackgroundColor(Color.LTGRAY)
+             holder.dataValueTextView.setBackgroundColor(Color.LTGRAY)
          }*/
+
+
 
     }
 }

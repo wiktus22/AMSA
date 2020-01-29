@@ -1,5 +1,6 @@
 package com.example.api_project.Sensors
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.api_project.MainActivity
 import com.example.api_project.R
 import com.example.api_project.Sensor
+import com.example.api_project.UserPlaces.PlacesFragment
+import kotlinx.android.synthetic.main.fragment_info.view.*
 import kotlinx.android.synthetic.main.list_info.view.*
 
 class SensorsListAdapter: RecyclerView.Adapter<SensorsListAdapter.ViewHolder>() {
@@ -24,6 +27,7 @@ class SensorsListAdapter: RecyclerView.Adapter<SensorsListAdapter.ViewHolder>() 
         val sensorIDTextView = view.sensorId!!
         val sensorNameTextView = view.sensorParamName!!
         val sensorCodeTextView = view.sensorParamCode!!
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -43,28 +47,15 @@ class SensorsListAdapter: RecyclerView.Adapter<SensorsListAdapter.ViewHolder>() 
         holder.sensorCodeTextView.text= act.param?.paramCode
 
         view?.setOnClickListener {
-            //Toast.makeText(context as MainActivity,places[position].id.toString(),Toast.LENGTH_LONG).show()
             (it.context as MainActivity).addSensorsData(act.id!!)
 
         }
 
 
-
-
-       /* if (position%2 != 0) {
-            holder.stationIDTextView.setBackgroundColor(Color.GRAY)
-            holder.stationNameTextView.setBackgroundColor(Color.GRAY)
-        }
-        else{
-            holder.stationIDTextView.setBackgroundColor(Color.GREEN)
-            holder.stationNameTextView.setBackgroundColor(Color.GREEN)
-        }
-
-
-        holder.itemView.setOnClickListener{
-            //Toast.makeText(it.context as MainActivity,act.id.toString(), Toast.LENGTH_LONG).show()
-            (it.context as? MainActivity)?.addStation(act.id,act.stationName)
-
+        /*if (position%2 != 0) {
+            holder.sensorIDTextView.setBackgroundColor(Color.LTGRAY)
+            holder.sensorNameTextView.setBackgroundColor(Color.LTGRAY)
+            holder.sensorCodeTextView.setBackgroundColor(Color.LTGRAY)
         }*/
 
     }

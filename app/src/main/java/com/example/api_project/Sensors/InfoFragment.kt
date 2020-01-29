@@ -8,7 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.lifecycle.Observer
+import com.example.api_project.MainActivity
 import com.example.api_project.R
+import com.example.api_project.UserPlaces.PlacesFragment
+import kotlinx.android.synthetic.main.fragment_info.view.*
 
 class InfoFragment: Fragment() {
 
@@ -31,6 +34,7 @@ class InfoFragment: Fragment() {
         recyclerView.adapter=adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
 
-
     }
+
+
 }

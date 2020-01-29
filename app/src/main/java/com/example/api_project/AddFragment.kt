@@ -46,6 +46,14 @@ class AddFragment:Fragment() {
             //Toast.makeText(context as MainActivity,"Place Added", Toast.LENGTH_LONG).show()
 
         }
+
+        /*add_cancel.setOnClickListener {
+            (it.context as MainActivity)
+                .supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.fragmentContainer, PlacesFragment.newInstacne())
+                .commit()
+        }*/
         super.onActivityCreated(savedInstanceState)
     }
 }

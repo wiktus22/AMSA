@@ -5,13 +5,13 @@
     <item android:id="@+id/home"
         android:icon="@drawable/home"
         android:title="Home"
-        app:showAsAction="ifRoom"
+        app:showAsAction="never"
         />
 
     <item android:id="@+id/add"
         android:icon="@drawable/add"
         android:title="Add New"
-        app:showAsAction="ifRoom"
+        app:showAsAction="never"
         />
 
     <item android:id="@+id/hiden"
