@@ -13,24 +13,24 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
+        android:text="App created as project for Mobile applications of Android system.App uses free API http://powietrze.gios.gov.pl/pjp/content/api"
         app:layout_constraintBottom_toTopOf="@+id/Authors"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.774"
-        android:text="App created as project for Mobile applications of Android system.App uses free API http://powietrze.gios.gov.pl/pjp/content/api" />
+        app:layout_constraintVertical_bias="0.642" />
 
     <TextView
         android:id="@+id/Author1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Maksymilian Wojciech"
         app:layout_constraintBottom_toTopOf="@+id/Author2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.967"
-        android:text="Maksymilian Wojciech" />
+        app:layout_constraintVertical_bias="0.934" />
 
     <TextView
         android:id="@+id/Author2"
@@ -40,7 +40,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.349" />
 
     <TextView
         android:id="@+id/Authors"
@@ -51,7 +52,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.951" />
+        app:layout_constraintVertical_bias="0.882" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/work" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -32,7 +32,7 @@ class DBHelper(context: Context): SQLiteOpenHelper(context, DATA_BASE_NAME,null,
 
     val allItems: MutableList<Place>
         get(){
-            val query="SELECT * FROM $TABLE_NAME"
+            val query="SELECT * FROM $TABLE_NAME ORDER BY $COL_NAME ASC"
             val places= mutableListOf<Place>()
             val db=this.writableDatabase
             val cursor=db.rawQuery(query,null)

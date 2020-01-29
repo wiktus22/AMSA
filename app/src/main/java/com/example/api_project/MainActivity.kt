@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val fragment = MainFragment.newInstacne()
+        val fragment = PlacesFragment.newInstacne()
         replaceFragment(fragment)
         refreshPlaces()
     }
@@ -47,11 +47,11 @@ class MainActivity : AppCompatActivity() {
             return true
         }
 
-        if (id==R.id.list) {
+       /* if (id==R.id.list) {
             val fragment = PlacesFragment.newInstacne()
             replaceFragment(fragment)
             return true
-        }
+        }*/
 
         if (id==R.id.home) {
             val fragment = PlacesFragment.newInstacne()

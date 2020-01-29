@@ -14,14 +14,8 @@
         app:showAsAction="ifRoom"
         />
 
-    <item android:id="@+id/list"
-        android:icon="@drawable/list"
-        android:title="List"
-        app:showAsAction="ifRoom"
-        />
-
     <item android:id="@+id/hiden"
-        android:title="Nothing to find"
+        android:title="ABOUT"
         app:showAsAction="never"
         />
 

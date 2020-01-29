@@ -10,6 +10,7 @@ import com.example.api_project.R
 import com.example.api_project.Station
 
 import kotlinx.android.synthetic.main.list_stations.view.*
+import kotlin.collections.ArrayList
 
 class StationsListAdapter: RecyclerView.Adapter<StationsListAdapter.ViewHolder>() {
 
@@ -46,8 +47,8 @@ class StationsListAdapter: RecyclerView.Adapter<StationsListAdapter.ViewHolder>(
             holder.stationNameTextView.setBackgroundColor(Color.GRAY)
         }
         else{
-            holder.stationIDTextView.setBackgroundColor(Color.GREEN)
-            holder.stationNameTextView.setBackgroundColor(Color.GREEN)
+            //holder.stationIDTextView.setBackgroundColor(Color.WHITE)
+            //holder.stationNameTextView.setBackgroundColor(Color.WHITE)
         }
 
 
