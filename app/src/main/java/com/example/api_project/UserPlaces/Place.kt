@@ -1,4 +1,4 @@
-package com.example.api_project
+package com.example.api_project.UserPlaces
 
 import java.io.Serializable
 

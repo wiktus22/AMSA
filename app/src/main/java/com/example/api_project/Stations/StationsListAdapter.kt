@@ -1,11 +1,13 @@
-package com.example.api_project
+package com.example.api_project.Stations
 
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.api_project.MainActivity
+import com.example.api_project.R
+import com.example.api_project.Station
 
 import kotlinx.android.synthetic.main.list_stations.view.*
 

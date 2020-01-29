@@ -1,22 +1,23 @@
-package com.example.api_project
+package com.example.api_project.UserPlaces
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.api_project.*
 import kotlinx.android.synthetic.main.list_places.view.*
 
 
-class PlacesListAdapter(val places:MutableList<Place>,val context: Context) : RecyclerView.Adapter<PlacesListAdapter.ViewHolder>() {
+class PlacesListAdapter(val places:MutableList<Place>, val context: Context) : RecyclerView.Adapter<PlacesListAdapter.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType:Int): ViewHolder{
+    override fun onCreateViewHolder(parent: ViewGroup, viewType:Int): ViewHolder {
         val view= LayoutInflater.from(parent.context).inflate(R.layout.list_places,parent,false)
-        return ViewHolder(view)
+        return ViewHolder(
+            view
+        )
     }
 
     override fun getItemCount(): Int {
@@ -33,9 +34,11 @@ class PlacesListAdapter(val places:MutableList<Place>,val context: Context) : Re
         val view = holder?.itemView
 
         view?.setOnClickListener {
-            Toast.makeText(context as MainActivity,places[position].id.toString(),Toast.LENGTH_LONG).show()
+            Toast.makeText(context as MainActivity,places[position].name,Toast.LENGTH_LONG).show()
+            (it.context as MainActivity).addSensors(places[position].id!!)
 
         }
+
 
         view?.place_del_button?.setOnClickListener {
 
@@ -47,7 +50,10 @@ class PlacesListAdapter(val places:MutableList<Place>,val context: Context) : Re
             (it.context as MainActivity)
                 .supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.fragmentContainer, PlacesFragment.newInstacne())
+                .replace(
+                    R.id.fragmentContainer,
+                    PlacesFragment.newInstacne()
+                )
                 .commit()
 
         }

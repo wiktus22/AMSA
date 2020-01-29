@@ -4,8 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.api_project.UserPlaces.Place
+import com.example.api_project.UserPlaces.PlacesFragment
 import kotlinx.android.synthetic.main.fragment_add.*
 
 class AddFragment:Fragment() {
@@ -34,7 +35,7 @@ class AddFragment:Fragment() {
         textViewName.text=name
 
         place_add_done.setOnClickListener {
-            val place = Place(name,id)
+            val place = Place(name, id)
             dbHelper.addItem(place)
             (it.context as MainActivity)
                 .supportFragmentManager

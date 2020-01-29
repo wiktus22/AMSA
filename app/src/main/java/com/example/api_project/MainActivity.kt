@@ -1,19 +1,14 @@
 package com.example.api_project
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_main.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import com.example.api_project.Sensors.InfoFragment
+import com.example.api_project.SensorsData.DataSensorFragment
+import com.example.api_project.Stations.MainFragment
+import com.example.api_project.UserPlaces.PlacesFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -59,13 +54,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         if (id==R.id.home) {
-            val fragment = InfoFragment.newInstacne()
+            val fragment = PlacesFragment.newInstacne()
             replaceFragment(fragment)
+            //val fragment = InfoFragment.newInstacne()
+            //replaceFragment(fragment)
             return true
         }
 
         if (id == R.id.hiden) {
-            val fragment = DataSensorFragment.newInstacne()
+            val fragment = AboutFragment.newInstacne()
             replaceFragment(fragment)
             return true
         }
@@ -94,6 +91,24 @@ class MainActivity : AppCompatActivity() {
         bundle.putString("name",stationName)
 
         val fragment = AddFragment.newInstacne()
+        fragment.setArguments(bundle)
+
+        replaceFragment(fragment as Fragment)
+    }
+
+    fun addSensors(id:Int){
+        val bundle=Bundle()
+        bundle.putInt("id",id)
+        val fragment = InfoFragment.newInstacne()
+        fragment.setArguments(bundle)
+
+        replaceFragment(fragment as Fragment)
+    }
+
+    fun addSensorsData(id:Int){
+        val bundle=Bundle()
+        bundle.putInt("id",id)
+        val fragment = DataSensorFragment.newInstacne()
         fragment.setArguments(bundle)
 
         replaceFragment(fragment as Fragment)

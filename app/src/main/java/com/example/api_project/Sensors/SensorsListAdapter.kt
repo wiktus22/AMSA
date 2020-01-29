@@ -1,14 +1,13 @@
-package com.example.api_project
+package com.example.api_project.Sensors
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.api_project.MainActivity
+import com.example.api_project.R
+import com.example.api_project.Sensor
 import kotlinx.android.synthetic.main.list_info.view.*
-
-import kotlinx.android.synthetic.main.list_stations.view.*
 
 class SensorsListAdapter: RecyclerView.Adapter<SensorsListAdapter.ViewHolder>() {
 
@@ -38,9 +37,18 @@ class SensorsListAdapter: RecyclerView.Adapter<SensorsListAdapter.ViewHolder>() 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val act = sensorsList[position]
+        val view = holder?.itemView
         holder.sensorIDTextView.text=act.id.toString()
         holder.sensorNameTextView.text= act.param?.paramName
         holder.sensorCodeTextView.text= act.param?.paramCode
+
+        view?.setOnClickListener {
+            //Toast.makeText(context as MainActivity,places[position].id.toString(),Toast.LENGTH_LONG).show()
+            (it.context as MainActivity).addSensorsData(act.id!!)
+
+        }
+
+
 
 
        /* if (position%2 != 0) {

@@ -1,8 +1,9 @@
 
-package com.example.api_project
+package com.example.api_project.Sensors
 
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
+import com.example.api_project.RestAPI
+import com.example.api_project.Sensor
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -10,7 +11,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
-class RetrofitClientSensors: Callback<List<Sensor>> {
+class RetrofitClientSensors(val id:Int?): Callback<List<Sensor>> {
 
     companion object {
         val API_ADRESS = "http://api.gios.gov.pl/pjp-api/rest/"
@@ -24,7 +25,7 @@ class RetrofitClientSensors: Callback<List<Sensor>> {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val restapi = retrofit.create(RestAPI::class.java)
-        val kolejnazmienna = restapi.sensorsInStation(809)
+        val kolejnazmienna = restapi.sensorsInStation(id!!)
         kolejnazmienna.enqueue(this)
     }
 

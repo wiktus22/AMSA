@@ -1,18 +1,19 @@
-package com.example.api_project
+package com.example.api_project.SensorsData
 
-import android.util.Log.d
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.api_project.R
+import com.example.api_project.SensorData
 import kotlinx.android.synthetic.main.list_data.view.*
-import kotlinx.android.synthetic.main.list_info.view.*
 
 class DataListAdapter: RecyclerView.Adapter<DataListAdapter.ViewHolder>() {
 
-    private var dataList = ArrayList<SensorData>()
+    private var dataList: SensorData =
+        SensorData()
 
-    fun setData(list:ArrayList<SensorData>){
+    fun setData(list: SensorData){
         dataList=list
         notifyDataSetChanged()
     }
@@ -31,15 +32,15 @@ class DataListAdapter: RecyclerView.Adapter<DataListAdapter.ViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return dataList.size
+        return dataList.values.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        d("Lista", dataList[position].toString())
-        val act = dataList[position]
-        holder.dataKeyTextView.text=act.key
-        holder.dataDateTextView.text= act.values?.date
-        holder.dataValueTextView.text= act.values?.value.toString()
+        //d("Lista", dataList.values[position].toString())
+        val act = dataList.values[position]
+        holder.dataKeyTextView.text=dataList.key
+        holder.dataDateTextView.text= act.date
+        holder.dataValueTextView.text= act.value.toString()
 
 
         /* if (position%2 != 0) {

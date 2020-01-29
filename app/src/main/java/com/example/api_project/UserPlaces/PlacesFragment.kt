@@ -1,13 +1,14 @@
-package com.example.api_project
+package com.example.api_project.UserPlaces
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.api_project.DBHelper
+import com.example.api_project.R
 import kotlinx.android.synthetic.main.fragment_places.*
 
 
@@ -36,7 +37,11 @@ class PlacesFragment: Fragment() {
 
         if (view != null) {
             val dbHelper = DBHelper(view!!.context)
-            places_list?.adapter = PlacesListAdapter(dbHelper.allItems, view!!.context)
+            places_list?.adapter =
+                PlacesListAdapter(
+                    dbHelper.allItems,
+                    view!!.context
+                )
         }
 
     }

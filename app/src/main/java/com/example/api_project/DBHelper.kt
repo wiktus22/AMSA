@@ -4,6 +4,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import androidx.core.content.contentValuesOf
+import com.example.api_project.UserPlaces.Place
 
 class DBHelper(context: Context): SQLiteOpenHelper(context, DATA_BASE_NAME,null, DATA_BASE_VERSION) {
 
@@ -41,7 +42,7 @@ class DBHelper(context: Context): SQLiteOpenHelper(context, DATA_BASE_NAME,null,
                     val id=cursor.getInt(cursor.getColumnIndex(COL_ID))
                     val name=cursor.getString(cursor.getColumnIndex(COL_NAME))
 
-                    var place=Place(name,id)
+                    var place= Place(name, id)
                     place.id = id
                     places.add(place)
 

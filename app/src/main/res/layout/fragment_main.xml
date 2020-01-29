@@ -5,7 +5,7 @@
     android:id="@+id/rv_fragment_stations"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainFragment">
+    tools:context=".Stations.MainFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RecViewLayout"
