@@ -67,4 +67,8 @@ class DBHelper(context: Context): SQLiteOpenHelper(context, DATA_BASE_NAME,null,
     fun deletePlace(id: Int?) {
         this.writableDatabase.execSQL("DELETE FROM $TABLE_NAME WHERE $COL_ID LIKE $id")
     }
+
+    fun deleteData(){
+        this.writableDatabase.execSQL("delete from  $TABLE_NAME")
+    }
 }

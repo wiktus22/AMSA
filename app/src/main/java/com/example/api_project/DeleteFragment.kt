@@ -32,7 +32,7 @@ class DeleteFragment:Fragment() {
 
 
         delButton.setOnClickListener {
-            //dbHelper.
+            dbHelper.deleteData()
             (it.context as MainActivity)
                 .supportFragmentManager
                 .beginTransaction()
