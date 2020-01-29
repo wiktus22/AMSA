@@ -47,11 +47,11 @@ class MainActivity : AppCompatActivity() {
             return true
         }
 
-       /* if (id==R.id.list) {
-            val fragment = PlacesFragment.newInstacne()
+        if (id==R.id.delete) {
+            val fragment = DeleteFragment.newInstacne()
             replaceFragment(fragment)
             return true
-        }*/
+        }
 
         if (id==R.id.home) {
             val fragment = PlacesFragment.newInstacne()
