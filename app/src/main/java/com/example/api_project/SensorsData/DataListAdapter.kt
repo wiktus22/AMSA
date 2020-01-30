@@ -44,6 +44,13 @@ class DataListAdapter: RecyclerView.Adapter<DataListAdapter.ViewHolder>() {
         holder.dataDateTextView.text= act.date
         holder.dataValueTextView.text= act.value.toString()
 
+        /*if (act.value==null){
+        }else{
+            if (act.value!!>10){
+            holder.dataValueTextView.setBackgroundColor(Color.RED)}
+        }*/
+
+
 
         /*if (position%2 != 0) {
              holder.dataKeyTextView.setBackgroundColor(Color.LTGRAY)

@@ -48,11 +48,11 @@ class MainActivity : AppCompatActivity() {
             return true
         }
 
-        /*if (id==R.id.delete) {
+        if (id==R.id.delete) {
             val fragment = DeleteFragment.newInstacne()
             replaceFragment(fragment)
             return true
-        }*/
+        }
 
 
         if (id==R.id.home) {
@@ -111,5 +111,5 @@ class MainActivity : AppCompatActivity() {
         replaceFragment(fragment as Fragment)
     }
 
-    
+
 }
