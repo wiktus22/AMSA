@@ -14,11 +14,12 @@ class MainActivity : AppCompatActivity() {
 
     var fragmentPlaces = PlacesFragment.newInstacne()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val fragment = PlacesFragment.newInstacne()
+        val fragment = WelcomeFragment.newInstacne()
         replaceFragment(fragment)
         refreshPlaces()
     }
@@ -53,6 +54,7 @@ class MainActivity : AppCompatActivity() {
             return true
         }*/
 
+
         if (id==R.id.home) {
             val fragment = PlacesFragment.newInstacne()
             replaceFragment(fragment)
@@ -64,9 +66,6 @@ class MainActivity : AppCompatActivity() {
             replaceFragment(fragment)
             return true
         }
-
-
-
 
         return super.onOptionsItemSelected(item)
 
@@ -111,4 +110,6 @@ class MainActivity : AppCompatActivity() {
 
         replaceFragment(fragment as Fragment)
     }
+
+    
 }
