@@ -47,13 +47,13 @@ class AddFragment:Fragment() {
 
         }
 
-        /*add_cancel.setOnClickListener {
+        add_cancel.setOnClickListener {
             (it.context as MainActivity)
                 .supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.fragmentContainer, PlacesFragment.newInstacne())
                 .commit()
-        }*/
+        }
         super.onActivityCreated(savedInstanceState)
     }
 }

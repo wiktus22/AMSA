@@ -52,11 +52,11 @@ class SensorsListAdapter: RecyclerView.Adapter<SensorsListAdapter.ViewHolder>() 
         }
 
 
-        /*if (position%2 != 0) {
+        if (position%2 != 0) {
             holder.sensorIDTextView.setBackgroundColor(Color.LTGRAY)
             holder.sensorNameTextView.setBackgroundColor(Color.LTGRAY)
             holder.sensorCodeTextView.setBackgroundColor(Color.LTGRAY)
-        }*/
+        }
 
     }
 }
