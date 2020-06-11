@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
-        android:text="App created as project for Mobile applications of Android system.App uses free API http://powietrze.gios.gov.pl/pjp/content/api"
+        android:text="App created as project for stydy. App uses free API http://powietrze.gios.gov.pl/pjp/content/api"
         app:layout_constraintBottom_toTopOf="@+id/Authors"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
